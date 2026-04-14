@@ -38,11 +38,12 @@
             to { transform: rotate(360deg); }
         }
 
+        /* التعديل هنا: البلند مود ثابت وجاهز من أول لحظة */
         .photo-fade-in {
-            opacity: 0;
+            mix-blend-mode: screen !important; 
+            opacity: 0.01; /* قيمة طفيفة جداً عشان المتصفح يبدأ الدمج فوراً */
             animation: fadeIn 0.6s ease-out forwards;
             animation-delay: 0.2s;
-            mix-blend-mode: screen; 
         }
 
         @keyframes fadeIn {
@@ -58,100 +59,172 @@
             object-fit: cover;
             object-position: center 20%;
         }
+
+        /* --- التعديلات الإضافية فقط --- */
+        
+        /* غلاف لإخفاء المحتوى خلف الرسالة */
+        #page-content {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        /* تصميم الرسالة */
+        #welcome-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: #1c1c22;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background-color: #232329;
+            border: 1px solid rgba(0, 255, 153, 0.3);
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+        }
         
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="max-w-7xl mx-auto px-8 py-10">
-        <div class="header-frame px-8 py-4 rounded-full flex justify-between items-center shadow-[0_0_20px_rgba(0,255,153,0.1)]">
-            <h1 class="text-3xl font-bold">Mohamed<span class="text-accent">.</span></h1>
-            <nav>
-                <ul class="flex gap-8 text-base font-medium">
-                    <li class="text-accent border-b-2 border-accent pb-1">Home</li>
-                    <li><a href="services.html" class="hover:text-accent transition-all">Services</a></li>
-                    <li><a href="resume.html" class="hover:text-accent transition-all">Resume</a></li>
-                    <li><a href="work.html" class="hover:text-accent transition-all">Work</a></li>
-                    <li><a href="contact.html" class="hover:text-accent transition-all">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-8 pt-16 pb-8 flex flex-col md:flex-row items-center justify-between">
-        
-        <div class="md:w-1/2 space-y-6">
-            <p class="text-gray-300 text-lg tracking-widest uppercase">Data Analyst</p>
-            <h2 class="text-7xl font-extrabold leading-tight">
-                Hello I'm <br> <span class="text-accent">Mohamed Helal</span>
-            </h2>
-            <p class="text-gray-400 text-lg max-w-lg leading-relaxed pt-2">
-                I turn data into insights and insights into decisions.
-                Leveraging tools like <span class="text-accent font-bold">Power BI</span>, <span class="text-accent font-bold">SQL</span>, <span class="text-accent font-bold">Excel</span>, <span class="text-accent font-bold">Python</span> and data visualization techniques, I deliver accurate analysis and build dashboards that turn complex data into clear business solutions.
+    <div id="welcome-modal" style="display: none;">
+        <div class="modal-card">
+            <div class="text-accent text-6xl mb-6">
+                <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h2 class="text-2xl font-bold mb-4">Best Experience</h2>
+            <p class="text-gray-400 mb-8 leading-relaxed">
+                For the best visual experience with data dashboards and professional insights, we recommend using a <b>Laptop</b> or <b>Desktop</b>.
             </p>
+            <button onclick="startExperience()" class="bg-accent text-[#1c1c22] font-extrabold py-3 px-12 rounded-full hover:scale-105 transition-all">
+                OK, Let's Go
+            </button>
+        </div>
+    </div>
 
-            <div class="flex items-center gap-8 pt-6">
-                <a href="https://drive.google.com/file/d/1xA-uTJZ5-FCbqkJsmOieGMfaF2_AwvsY/view?usp=sharing" target="_blank" class="border-2 border-accent text-accent px-8 py-3 rounded-full font-bold flex items-center gap-3 hover:bg-accent hover:text-black transition-all">
-                    CV <i class="fa-regular fa-eye"></i>
-                </a>
-                
-                <div class="flex gap-4">
-                    <a href="https://github.com/mohmaednasser" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
-                        <i class="fa-brands fa-github"></i>
+    <div id="page-content">
+        <header class="max-w-7xl mx-auto px-8 py-10">
+            <div class="header-frame px-8 py-4 rounded-full flex justify-between items-center shadow-[0_0_20px_rgba(0,255,153,0.1)]">
+                <h1 class="text-3xl font-bold">Mohamed<span class="text-accent">.</span></h1>
+                <nav>
+                    <ul class="flex gap-8 text-base font-medium">
+                        <li class="text-accent border-b-2 border-accent pb-1">Home</li>
+                        <li><a href="services.html" class="hover:text-accent transition-all">Services</a></li>
+                        <li><a href="resume.html" class="hover:text-accent transition-all">Resume</a></li>
+                        <li><a href="work.html" class="hover:text-accent transition-all">Work</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition-all">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto px-8 pt-16 pb-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 space-y-6">
+                <p class="text-gray-300 text-lg tracking-widest uppercase">Data Analyst</p>
+                <h2 class="text-7xl font-extrabold leading-tight">
+                    Hello I'm <br> <span class="text-accent">Mohamed Helal</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-lg leading-relaxed pt-2">
+                    I turn data into insights and insights into decisions.
+                    Leveraging tools like <span class="text-accent font-bold">Power BI</span>, <span class="text-accent font-bold">SQL</span>, <span class="text-accent font-bold">Excel</span>, <span class="text-accent font-bold">Python</span> and data visualization techniques, I deliver accurate analysis and build dashboards that turn complex data into clear business solutions.
+                </p>
+
+                <div class="flex items-center gap-8 pt-6">
+                    <a href="https://drive.google.com/file/d/1xA-uTJZ5-FCbqkJsmOieGMfaF2_AwvsY/view?usp=sharing" target="_blank" class="border-2 border-accent text-accent px-8 py-3 rounded-full font-bold flex items-center gap-3 hover:bg-accent hover:text-black transition-all">
+                        CV <i class="fa-regular fa-eye"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/mohamed-nasser-212595363/" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://www.facebook.com/mohamed.nasser.604323" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="https://wa.me/201019622475" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
+                    
+                    <div class="flex gap-4">
+                        <a href="https://github.com/mohmaednasser" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohamed-nasser-212595363/" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.facebook.com/mohamed.nasser.604323" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/201019622475" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="md:w-1/2 flex justify-center relative mt-16 md:mt-0">
-            <div class="relative w-[300px] h-[300px] xl:w-[506px] xl:h-[506px] flex items-center justify-center">
-                <svg class="absolute w-full h-full circle-svg-anim" viewBox="0 0 506 506" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle 
-                        cx="253" cy="253" r="250" 
-                        stroke="#00ff99" 
-                        stroke-width="4" 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round"
-                        class="dynamic-dash"
-                    />
-                </svg>
-                
-                <div class="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] rounded-full overflow-hidden photo-fade-in">
-                    <img src="profile.png" alt="Mohamed Helal" class="w-full h-full profile-img">
+            <div class="md:w-1/2 flex justify-center relative mt-16 md:mt-0">
+                <div class="relative w-[300px] h-[300px] xl:w-[506px] xl:h-[506px] flex items-center justify-center">
+                    <svg class="absolute w-full h-full circle-svg-anim" viewBox="0 0 506 506" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle 
+                            cx="253" cy="253" r="250" 
+                            stroke="#00ff99" 
+                            stroke-width="4" 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round"
+                            class="dynamic-dash"
+                        />
+                    </svg>
+                    
+                    <div class="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] rounded-full overflow-hidden photo-fade-in">
+                        <img src="profile.png" alt="Mohamed Helal" class="w-full h-full profile-img">
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
 
-    <section class="max-w-7xl mx-auto px-8 pt-4 pb-20">
-        <div class="flex flex-wrap justify-between items-center gap-12">
-            <div class="flex items-center gap-4">
-                <span class="text-7xl font-extrabold tracking-tighter">2</span>
-                <p class="text-xl text-gray-400 leading-tight">Years of <br> experience</p>
+        <section class="max-w-7xl mx-auto px-8 pt-4 pb-20">
+            <div class="flex flex-wrap justify-between items-center gap-12">
+                <div class="flex items-center gap-4">
+                    <span class="text-7xl font-extrabold tracking-tighter">2</span>
+                    <p class="text-xl text-gray-400 leading-tight">Years of <br> experience</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-7xl font-extrabold tracking-tighter">26</span>
+                    <p class="text-xl text-gray-400 leading-tight">Projects <br> completed</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-7xl font-extrabold tracking-tighter">6</span>
+                    <p class="text-xl text-gray-400 leading-tight">Technologies <br> mastered</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-7xl font-extrabold tracking-tighter">6</span>
+                    <p class="text-xl text-gray-400 leading-tight">Clients <br> Served</p>
+                </div>
             </div>
-            <div class="flex items-center gap-4">
-                <span class="text-7xl font-extrabold tracking-tighter">26</span>
-                <p class="text-xl text-gray-400 leading-tight">Projects <br> completed</p>
-            </div>
-            <div class="flex items-center gap-4">
-                <span class="text-7xl font-extrabold tracking-tighter">6</span>
-                <p class="text-xl text-gray-400 leading-tight">Technologies <br> mastered</p>
-            </div>
-            <div class="flex items-center gap-4">
-                <span class="text-7xl font-extrabold tracking-tighter">6</span>
-                <p class="text-xl text-gray-400 leading-tight">Clients <br> Served</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
+    <script>
+        const modal = document.getElementById('welcome-modal');
+        const content = document.getElementById('page-content');
+
+        function revealContent() {
+            content.style.opacity = '1';
+        }
+
+        function startExperience() {
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+                sessionStorage.setItem('portfolio_visited', 'true');
+                revealContent();
+            }, 500);
+        }
+
+        window.onload = () => {
+            if (!sessionStorage.getItem('portfolio_visited')) {
+                modal.style.display = 'flex';
+            } else {
+                modal.style.display = 'none';
+                revealContent();
+            }
+        };
+    </script>
 </body>
 </html>
