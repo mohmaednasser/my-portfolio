@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Helal Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #1c1c22; 
+            color: white;
+            overflow-x: hidden;
+        }
+        .text-accent { color: #00ff99; }
+        .border-accent { border-color: #00ff99; }
+        .bg-accent { background-color: #00ff99; }
+        
+        /* تنسيق الهيدر "الفريم" الموحد مع برواز أخضر */
+        .header-frame {
+            background-color: rgba(35, 35, 41, 0.5);
+            border: 1px solid rgba(0, 255, 153, 0.4);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        /* حركة الدائرة */
+        .circle-svg-anim {
+            animation: rotate-dash 20s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes rotate-dash {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .photo-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+            animation-delay: 0.2s;
+            mix-blend-mode: screen; 
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .dynamic-dash {
+            stroke-dasharray: 40 30 10 30;
+            stroke-dashoffset: 0;
+        }
+
+        .profile-img {
+            object-fit: cover;
+            object-position: center 20%;
+        }
+        
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="max-w-7xl mx-auto px-8 py-10">
+        <div class="header-frame px-8 py-4 rounded-full flex justify-between items-center shadow-[0_0_20px_rgba(0,255,153,0.1)]">
+            <h1 class="text-3xl font-bold">Mohamed<span class="text-accent">.</span></h1>
+            <nav>
+                <ul class="flex gap-8 text-base font-medium">
+                    <li class="text-accent border-b-2 border-accent pb-1">Home</li>
+                    <li><a href="services.html" class="hover:text-accent transition-all">Services</a></li>
+                    <li><a href="resume.html" class="hover:text-accent transition-all">Resume</a></li>
+                    <li><a href="work.html" class="hover:text-accent transition-all">Work</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition-all">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-8 pt-16 pb-8 flex flex-col md:flex-row items-center justify-between">
+        
+        <div class="md:w-1/2 space-y-6">
+            <p class="text-gray-300 text-lg tracking-widest uppercase">Data Analyst</p>
+            <h2 class="text-7xl font-extrabold leading-tight">
+                Hello I'm <br> <span class="text-accent">Mohamed Helal</span>
+            </h2>
+            <p class="text-gray-400 text-lg max-w-lg leading-relaxed pt-2">
+                I turn data into insights and insights into decisions.
+                Leveraging tools like <span class="text-accent font-bold">Power BI</span>, <span class="text-accent font-bold">SQL</span>, <span class="text-accent font-bold">Excel</span>, <span class="text-accent font-bold">Python</span> and data visualization techniques, I deliver accurate analysis and build dashboards that turn complex data into clear business solutions.
+            </p>
+
+            <div class="flex items-center gap-8 pt-6">
+                <a href="https://drive.google.com/file/d/1xA-uTJZ5-FCbqkJsmOieGMfaF2_AwvsY/view?usp=sharing" target="_blank" class="border-2 border-accent text-accent px-8 py-3 rounded-full font-bold flex items-center gap-3 hover:bg-accent hover:text-black transition-all">
+                    CV <i class="fa-regular fa-eye"></i>
+                </a>
+                
+                <div class="flex gap-4">
+                    <a href="https://github.com/mohmaednasser" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohamed-nasser-212595363/" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.facebook.com/mohamed.nasser.604323" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/201019622475" target="_blank" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:w-1/2 flex justify-center relative mt-16 md:mt-0">
+            <div class="relative w-[300px] h-[300px] xl:w-[506px] xl:h-[506px] flex items-center justify-center">
+                <svg class="absolute w-full h-full circle-svg-anim" viewBox="0 0 506 506" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle 
+                        cx="253" cy="253" r="250" 
+                        stroke="#00ff99" 
+                        stroke-width="4" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round"
+                        class="dynamic-dash"
+                    />
+                </svg>
+                
+                <div class="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] rounded-full overflow-hidden photo-fade-in">
+                    <img src="profile.png" alt="Mohamed Helal" class="w-full h-full profile-img">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="max-w-7xl mx-auto px-8 pt-4 pb-20">
+        <div class="flex flex-wrap justify-between items-center gap-12">
+            <div class="flex items-center gap-4">
+                <span class="text-7xl font-extrabold tracking-tighter">2</span>
+                <p class="text-xl text-gray-400 leading-tight">Years of <br> experience</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-7xl font-extrabold tracking-tighter">26</span>
+                <p class="text-xl text-gray-400 leading-tight">Projects <br> completed</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-7xl font-extrabold tracking-tighter">6</span>
+                <p class="text-xl text-gray-400 leading-tight">Technologies <br> mastered</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-7xl font-extrabold tracking-tighter">6</span>
+                <p class="text-xl text-gray-400 leading-tight">Clients <br> Served</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

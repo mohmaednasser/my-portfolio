@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Mohamed Helal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'JetBrains Mono', monospace; background-color: #1c1c22; color: white; margin: 0; }
+        .text-accent { color: #00ff99; }
+        .bg-accent { background-color: #00ff99; }
+
+        /* ستايل الفريم الموحد للهيدر */
+        .header-frame {
+            background-color: rgba(35, 35, 41, 0.5);
+            border: 1px solid rgba(0, 255, 153, 0.4); /* البرواز الأخضر الموحد */
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        /* الأزرار الجانبية */
+        .tab-button { 
+            width: 100%; 
+            background-color: #232329; 
+            color: #ffffff; 
+            padding: 14px; 
+            border-radius: 8px; 
+            font-weight: 600; 
+            text-align: center; 
+            transition: all 0.3s ease; 
+            cursor: pointer; 
+            border: 1px solid transparent; 
+        }
+        .tab-button.active { 
+            background-color: #00ff99; 
+            color: #1c1c22; 
+            box-shadow: 0 0 15px rgba(0, 255, 153, 0.2);
+        }
+        .tab-button:hover:not(.active) {
+            border-color: #00ff99;
+        }
+        
+        .content-section { display: none; }
+        .content-section.active { display: block; animation: fadeIn 0.5s ease; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .info-card { 
+            background-color: #232329; 
+            padding: 25px; 
+            border-radius: 12px; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 160px; 
+            transition: 0.3s; 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .info-card:hover { border-color: #00ff99; }
+
+        .skill-tag { background-color: #232329; padding: 15px; border-radius: 8px; border-left: 3px solid #00ff99; text-align: center; font-weight: bold; }
+        
+        .sub-tab-btn { background: #27272c; color: white; padding: 10px 25px; border-radius: 6px; transition: 0.3s; font-weight: bold; border: 1px solid transparent; }
+        .sub-tab-btn.active { background: #00ff99; color: #1c1c22; }
+
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 1fr 2fr; gap: 60px; }
+        @media (max-width: 768px) { .main-container { grid-template-columns: 1fr; gap: 40px; } }
+        
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="max-w-7xl mx-auto px-8 py-10">
+        <div class="header-frame px-8 py-4 rounded-full flex justify-between items-center shadow-[0_0_20px_rgba(0,255,153,0.1)]">
+            <h1 class="text-3xl font-bold">Mohamed<span class="text-accent">.</span></h1>
+            <nav>
+                <ul class="hidden md:flex gap-8 text-base font-medium">
+                    <li><a href="index.html" class="hover:text-accent transition-all">Home</a></li>
+                    <li><a href="services.html" class="hover:text-accent transition-all">Services</a></li>
+                    <li class="text-[#00ff99] border-b-2 border-[#00ff99] pb-1">Resume</li>
+                    <li><a href="work.html" class="hover:text-accent transition-all">Work</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition-all">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="flex flex-col gap-6">
+            <h2 class="text-5xl font-extrabold mb-4">Why hire me?</h2>
+            <div class="flex flex-col gap-3">
+                <button class="tab-button active" onclick="showTab('experience', this)">Experience</button>
+                <button class="tab-button" onclick="showTab('education', this)">Education</button>
+                <button class="tab-button" onclick="showTab('certificates', this)">Certificates</button>
+                <button class="tab-button" onclick="showTab('skills', this)">Skills</button>
+                <button class="tab-button" onclick="showTab('about', this)">About me</button>
+            </div>
+        </div>
+
+        <div id="content-display">
+            <section id="experience" class="content-section active">
+                <h2 class="text-4xl font-bold mb-8 text-accent">My experience</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="info-card"><span class="text-accent font-bold text-sm mb-2">2026 - Present</span><h3 class="text-xl font-bold">Freelance Data Analyst</h3><p class="text-gray-400 mt-auto">Delivering data analysis, dashboards, and insights using Excel, SQL, and Power BI.</p></div>
+                    <div class="info-card"><span class="text-accent font-bold text-sm mb-2">2023 - 2024</span><h3 class="text-xl font-bold">Video Editor(Blood Strike)</h3><p class="text-gray-400 mt-auto">Edited gaming content, trailers, and social media videos with a focus on engagement.</p></div>
+                    <div class="info-card"><span class="text-accent font-bold text-sm mb-2">2020 - 2022</span><h3 class="text-xl font-bold">Gym Manager</h3><p class="text-gray-400 mt-auto">Managed operations, tracked performance data, and improved customer experience.</p></div>
+                    <div class="info-card"><span class="text-accent font-bold text-sm mb-2">2019 - 2025</span><h3 class="text-xl font-bold">Video Editor(Noor Al Helal Studio)</h3><p class="text-gray-400 mt-auto">Produced and edited professional video content using Adobe tools.</p></div>
+                </div>
+            </section>
+
+            <section id="education" class="content-section">
+                <h2 class="text-4xl font-bold mb-8 text-accent">My education</h2>
+                <div class="info-card w-full"><span class="text-accent font-bold text-sm mb-2">2022 - Present</span><h3 class="text-2xl font-bold">Bachelor's Degree</h3><p class="text-gray-400 mt-auto">Faculty of Arts (General Division)</p></div>
+            </section>
+
+            <section id="certificates" class="content-section">
+                <h2 class="text-4xl font-bold mb-8 text-accent">Certificates & Grants</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="info-card"><span class="text-accent font-bold text-sm mb-2">2026</span><h3 class="text-lg font-bold">DEPI</h3><p class="text-gray-400 mt-auto">Data Analysis Program</p></div>
+                    <div class="info-card"><span class="text-accent font-bold text-sm mb-2">2026</span><h3 class="text-lg font-bold">NTI</h3><p class="text-gray-400 mt-auto">Data Analysis Track</p></div>
+                    <div class="info-card"><span class="text-accent font-bold text-sm mb-2">2024</span><h3 class="text-lg font-bold">Google </h3><p class="text-gray-400 mt-auto">Data Analytics Certificate</p></div>
+                    <div class="info-card"><span class="text-accent font-bold text-sm mb-2">2023</span><h3 class="text-lg font-bold">Mahara-Tech Program (ITI)</h3><p class="text-gray-400 mt-auto">SQL</p></div>
+                    <div class="info-card"><span class="text-accent font-bold text-sm mb-2">2022</span><h3 class="text-lg font-bold">Python for Data</h3><p class="text-gray-400 mt-auto">IBM</p></div>
+                    <div class="info-card"><span class="text-accent font-bold text-sm mb-2">2021</span><h3 class="text-lg font-bold">Business Intelligence</h3><p class="text-gray-400 mt-auto">Google</p></div>
+                </div>
+            </section>
+
+            <section id="skills" class="content-section">
+                <h2 class="text-4xl font-bold mb-6 text-accent">My skills</h2>
+                <div class="flex gap-4 mb-8">
+                    <button id="btn-tech" class="sub-tab-btn active" onclick="toggleSkills('tech')">Technical Skills</button>
+                    <button id="btn-soft" class="sub-tab-btn" onclick="toggleSkills('soft')">Soft Skills</button>
+                </div>
+                <div id="tech-skills" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="skill-tag">Power BI</div><div class="skill-tag">SQL</div><div class="skill-tag">Excel</div>
+                    <div class="skill-tag">Photoshop</div><div class="skill-tag">Figma</div><div class="skill-tag">Adobe</div>
+                </div>
+                <div id="soft-skills" class="hidden grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="skill-tag">Analytical Thinking</div><div class="skill-tag">Critical Thinking</div>
+                    <div class="skill-tag">Problem Solving</div><div class="skill-tag">Learning Agility</div>
+                    <div class="skill-tag">Time Management</div><div class="skill-tag">Presentation Skills</div>
+                </div>
+            </section>
+
+            <section id="about" class="content-section">
+                <h2 class="text-4xl font-bold mb-4 text-accent">About me</h2>
+                <p class="text-gray-400 mb-8 text-lg leading-relaxed">
+                    I am a professional Data Analysis coach and freelancer, specializing in transforming complex data into clear strategic insights.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 text-lg">
+                    <div class="flex items-center gap-4"> <span class="text-gray-400">Name</span> <span class="font-bold">Mohamed Helal</span> </div>
+                    <div class="flex items-center gap-4"> <span class="text-gray-400">Phone</span> <span class="font-bold">010-196-224-75</span> </div>
+                    <div class="flex items-center gap-4"> <span class="text-gray-400">Email</span> <span class="font-bold">nasserhelal34@gmail.com</span> </div>
+                    <div class="flex items-center gap-4"> <span class="text-gray-400">Nationality</span> <span class="font-bold">Egyptian</span> </div>
+                    <div class="flex items-center gap-4"> <span class="text-gray-400">Experience</span> <span class="font-bold">2+ Years</span> </div>
+                    <div class="flex items-center gap-4"> <span class="text-gray-400">Languages</span> <span class="font-bold">Arbica, English</span> </div>
+                    <div class="flex items-center gap-4"> <span class="text-gray-400">linkedin</span> <span class="font-bold">mohamed-helal-data</span> </div>
+                    <div class="flex items-center gap-4"> <span class="text-gray-400">Freelance</span> <span class="font-bold text-accent">Available</span> </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function showTab(tabId, btn) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        function toggleSkills(type) {
+            const tech = document.getElementById('tech-skills');
+            const soft = document.getElementById('soft-skills');
+            const btnTech = document.getElementById('btn-tech');
+            const btnSoft = document.getElementById('btn-soft');
+
+            if (type === 'tech') {
+                tech.classList.replace('hidden', 'grid');
+                soft.classList.replace('grid', 'hidden');
+                btnTech.classList.add('active');
+                btnSoft.classList.remove('active');
+            } else {
+                soft.classList.replace('hidden', 'grid');
+                tech.classList.replace('grid', 'hidden');
+                btnSoft.classList.add('active');
+                btnTech.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

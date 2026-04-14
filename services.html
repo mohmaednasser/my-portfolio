@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Mohamed Helal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'JetBrains Mono', monospace; 
+            background-color: #1c1c22; 
+            color: white; 
+            margin: 0; 
+        }
+        .text-accent { color: #00ff99; }
+        
+        /* تنسيق الهيدر الموحد */
+        .header-frame {
+            background-color: rgba(35, 35, 41, 0.5);
+            border: 1px solid rgba(0, 255, 153, 0.4);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        /* تنسيق كارت الخدمة والحدود عند الهوفر */
+        .service-card {
+            background-color: #232329;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.4s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .service-card:hover {
+            border-color: #00ff99;
+            box-shadow: 0 0 25px rgba(0, 255, 153, 0.15);
+            transform: translateY(-8px);
+        }
+
+        /* ستايل السهم وتفاعله */
+        .arrow-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            color: #1c1c22;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            transition: 0.4s ease-in-out;
+        }
+
+        .service-card:hover .arrow-link {
+            background-color: #00ff99;
+            transform: rotate(-45deg);
+        }
+
+        /* تأثير إضافي للرقم والعنوان */
+        .service-card:hover .text-4xl {
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+        }
+        
+    </style>
+</head>
+<body class="antialiased">
+
+<header class="max-w-7xl mx-auto px-8 py-10">
+    <div class="header-frame px-8 py-4 rounded-full flex justify-between items-center shadow-[0_0_15px_rgba(0,255,153,0.1)]">
+        
+        <h1 class="text-3xl font-bold text-white">Mohamed<span class="text-accent">.</span></h1>
+        
+        <nav>
+            <ul class="hidden md:flex gap-8 text-base font-medium">
+                <li><a href="index.html" class="text-white/80 hover:text-accent transition-all">Home</a></li>
+                
+                <li class="text-[#00ff99] border-b-2 border-[#00ff99] pb-1 cursor-default">Services</li>
+                
+                <li><a href="resume.html" class="text-white/80 hover:text-accent transition-all">Resume</a></li>
+                <li><a href="work.html" class="text-white/80 hover:text-accent transition-all">Work</a></li>
+                <li><a href="contact.html" class="text-white/80 hover:text-accent transition-all">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-8 py-12">
+    <h2 class="text-5xl font-bold mb-12">My <span class="text-accent">Services</span></h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="service-card group">
+            <div class="flex justify-between items-center w-full">
+                <div class="text-4xl font-extrabold text-accent transition-all duration-500">01</div>
+                <a href="contact.html?service=Data Analysis" class="arrow-link">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4 group-hover:text-accent transition-all duration-500">Data Analysis</h3>
+                <p class="text-gray-400 leading-relaxed">Professional analysis using Power BI, SQL, Excel and Pyton to turn data into decisions.</p>
+            </div>
+        </div>
+        
+        <div class="service-card group">
+            <div class="flex justify-between items-center w-full">
+                <div class="text-4xl font-extrabold text-accent transition-all duration-500">02</div>
+                <a href="contact.html?service=Database Design" class="arrow-link">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4 group-hover:text-accent transition-all duration-500">Database Design</h3>
+                <p class="text-gray-400 leading-relaxed">Creating efficient ERDs and managing complex database systems with SQL Server.</p>
+            </div>
+        </div>
+        
+        <div class="service-card group">
+            <div class="flex justify-between items-center w-full">
+                <div class="text-4xl font-extrabold text-accent transition-all duration-500">03</div>
+                <a href="contact.html?service=Power BI Dashboard" class="arrow-link">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4 group-hover:text-accent transition-all duration-500">Data Entry & Data Processing</h3>
+                <p class="text-gray-400 leading-relaxed">Accurate data entry, cleaning, and structuring to ensure high-quality datasets.</p>
+            </div>
+        </div>
+        
+        <div class="service-card group">
+            <div class="flex justify-between items-center w-full">
+                <div class="text-4xl font-extrabold text-accent transition-all duration-500">04</div>
+                <a href="contact.html?service=Coaching" class="arrow-link">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4 group-hover:text-accent transition-all duration-500">Coaching</h3>
+                <p class="text-gray-400 leading-relaxed">Guiding clients to learn data analysis and improve their skills step by step.</p>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>
